@@ -37,9 +37,34 @@
           println!("{}", grammar);
       }
 
+### Para a gramática abaixo temos os primeiros das variáveis a seguir:
+
+      ● Primeiro (E) = Primeiro(T) = Primeiro(F) ={ (, id }
+      ● Primeiro (E’) = {+, ε}
+      ● Primeiro (T) = Primeiro(F) = {(, id}
+      ● Primeiro (T’) = {*, ε}
+      ● Primeiro (F) = {(, id}
+      ● E → TE’
+      ● E’ → +TE’ | ε
+      ● T → FT’
+      ● T’ → *FT’ | ε
+      ● F → (E) | id
 
 ### Saida dos valores apos processamento da função First
 ![](https://github.com/enivaldoqueiroz/Compilador-Funcoes-First-Follow/blob/main/img/img001.png)
+
+### Para a gramática abaixo temos os seguintes Follows a seguir:
+      ● Follow (E) = { $, ) }
+      ● Follow (E’) = { $, ) }
+      ● Follow (T) = { +, ), $ }
+      ● Follow (T’) = { +, ), $ }
+      ● Follow (F) = { *,+,), $ }
+      Gramática G:
+      ● E → TE’
+      ● E’ → +TE’ | ε
+      ● T → FT’
+      ● T’ → *FT’ | ε
+      ● F → (E) | id
 
 ### Saida dos valores apos processamento da função Follow
 ![](https://github.com/enivaldoqueiroz/Compilador-Funcoes-First-Follow/blob/main/img/img002.png)
