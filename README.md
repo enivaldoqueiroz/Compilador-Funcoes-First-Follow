@@ -25,13 +25,13 @@
               productions: vec![],
               initial_symbol: 'S',
           };
-
+          //SET DAS VARIAVEIS E DERIVAÇÔES
           grammar.add_production(Production::new('E', "TZ".to_string()).unwrap());
           grammar.add_production(Production::new('Z', "+TZ | ε".to_string()).unwrap());
           grammar.add_production(Production::new('T', "XY".to_string()).unwrap());
           grammar.add_production(Production::new('Y', "*XY | ε".to_string()).unwrap());
           grammar.add_production(Production::new('X', "(E) | id".to_string()).unwrap());
-
+          //CHAMADOS DA FUNÇÕES FIRST E FOLLOW
           grammar.compute_firsts();
           grammar.compute_follows();
           println!("{}", grammar);
@@ -44,6 +44,7 @@
       ● Primeiro (T) = Primeiro(F) = {(, id}
       ● Primeiro (T’) = {*, ε}
       ● Primeiro (F) = {(, id}
+ ### Gramática G:
       ● E → TE’
       ● E’ → +TE’ | ε
       ● T → FT’
@@ -59,7 +60,7 @@
       ● Follow (T) = { +, ), $ }
       ● Follow (T’) = { +, ), $ }
       ● Follow (F) = { *,+,), $ }
-      Gramática G:
+ ### Gramática G:
       ● E → TE’
       ● E’ → +TE’ | ε
       ● T → FT’
