@@ -1,10 +1,6 @@
 use super::production::Production;
 use std::fmt;
 
-pub enum GrammarError {
-    InvalidVariable,
-}
-
 #[derive(Debug, Eq, PartialEq, Clone)]
 pub struct Grammar {
     pub variables: Vec<char>,
@@ -25,19 +21,7 @@ impl Grammar {
     pub fn is_terminal(&self, value: &String) -> bool {
         self.terminals.contains(value)
     }
-
-    pub fn add_variable(&mut self, variable: char) -> Result<(), GrammarError> {
-        if !variable.is_uppercase() {
-            return Err(GrammarError::InvalidVariable);
-        }
-
-        Ok(self.variables.push(variable))
-    }
-
-    pub fn add_terminal(&mut self, terminal: String) {
-        self.terminals.push(terminal);
-    }
-
+ 
     pub fn add_production(&mut self, production: Production) {
         if !self.productions.contains(&production) {
             self.productions.push(production);

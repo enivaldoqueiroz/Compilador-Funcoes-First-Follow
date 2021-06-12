@@ -1,4 +1,4 @@
-use crate::token::{Token, EPSILON};
+use crate::token::{Token};
 use std::collections::HashSet;
 use std::fmt;
 
@@ -30,28 +30,11 @@ impl Production {
     pub fn ends_with_variable(&self, variable: char) -> bool {
         self.derivation.ends_with(variable)
     }
-
-    pub fn ends_with_token(&self, token: &Token) -> bool {
-        match token {
-            Token::Variable(ch) => self.derivation.ends_with(&ch.to_string()),
-            Token::Terminal(s) => self.derivation.ends_with(s),
-            Token::Epsilon => self.derivation.ends_with(&EPSILON),
-            _ => false,
-        }
-    }
-
+  
     pub fn set_firsts(&mut self, firsts: HashSet<Token>) {
         self.firsts = firsts;
     }
-
-    pub fn set_follows(&mut self, follows: HashSet<Token>) {
-        self.follows = follows;
-    }
-
-    pub fn get_derivation_slices(&self) -> std::str::Split<'_, &str> {
-        self.derivation.split("|")
-    }
-
+   
     fn token_hashset_as_string(hashset: &HashSet<Token>) -> String {
         let mut result = String::new();
 
