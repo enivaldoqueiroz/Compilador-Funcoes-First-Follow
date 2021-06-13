@@ -1,4 +1,4 @@
-# Compilador - Implementação das funcoes First e Follow
+# Compilador - Implementação das funcoes First e Follow na linguagem RUST
 
 ### Função principal da implementação
 
